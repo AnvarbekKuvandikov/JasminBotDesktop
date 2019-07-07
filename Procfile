@@ -1,0 +1,1 @@
+<mainClass>com.home.server.TelegramBot</mainClass>
