@@ -14,11 +14,27 @@ public class Bot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if(update.hasMessage()) {
             message=update.getMessage();
-            sendMsg(message);
+            SendMessage sendMessage=new SendMessage();
+            sendMessage.setChatId(message.getChatId());
+            if(message.getText().equals("/start")){
+                sendMessage.setText("Assalomu alaykum "+message.getFrom().getFirstName()+".\nSiz bilan yaqinroq tanishsak bo'ladimi?");
+            }
+            else if(message.getText().equals("/help")){
+                sendMessage.setText("Avtor by:Anvar Quvandiqov");
+            }
+            else{
+                sendMessage.setText("Palakat");
+            }
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
-    public synchronized void sendMsg(Message message) {
+  /*  public synchronized void sendMsg(Message message) {
 //        System.out.println(message.getText());
 //        System.out.println(message.getSticker());
 //        System.out.println(message.getChatId());
@@ -58,7 +74,7 @@ public class Bot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
+*/
 
 
     @Override

@@ -13,3 +13,6 @@ public class Main {
         }
     }
 }
+/*
+git remote add heroku [git@github.com:AnvarbekQuvanqov/JasminBot.git]
+* */
