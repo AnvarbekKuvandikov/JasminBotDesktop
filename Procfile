@@ -1,1 +1,1 @@
-<mainClass>com.home.server.TelegramBot</mainClass>
+worker: sh target/bin/workerBot
